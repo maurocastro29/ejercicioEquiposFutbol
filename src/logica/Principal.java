@@ -20,10 +20,11 @@ public class Principal {
         do{
             op = new Integer(JOptionPane.showInputDialog("DIGITE UNA OPCION\n"
                     + "1. Crear nuevo Equipo\n"
-                    + "2. Crear nuevo Jugador\n"
-                    + "3. Ver lista de jugadores\n"
-                    + "4. Insertar jugador a equipo\n"
-                    + "5. Salir\n"));
+                    + "2. Ver lista de equipos\n"
+                    + "3. Crear nuevo Jugador\n"
+                    + "4. Ver lista de jugadores\n"
+                    + "5. Insertar jugador a equipo\n"
+                    + "6. Salir\n"));
             switch(op){
                 case 1:{
                     String nombreEquipo = JOptionPane.showInputDialog("Digite el nombre del nuevo Equipo");
@@ -31,9 +32,15 @@ public class Principal {
                     int cantTitulos = new Integer(JOptionPane.showInputDialog("Digite la cantidad de titulos del equipo"));      
                     Equipo equipo = new Equipo(nombreEquipo, nombreEstadio, cantTitulos);
                     listaEquipos.add(equipo);
+                    JOptionPane.showMessageDialog(null, "Equipo creado con exito.");
                     break;
                 }
                 case 2:{
+                    String datos = listarEquipos(listaEquipos);
+                    JOptionPane.showMessageDialog(null, "Datos de los equipos\n" + datos);
+                    break;
+                }
+                case 3:{
                     String nombre = JOptionPane.showInputDialog("Digite el nombre del nuevo jugador");
                     String posicion = JOptionPane.showInputDialog("Digite la posicion del nuevo jugador");
                     String cedula = JOptionPane.showInputDialog("Digite la cedula del nuevo jugador");
@@ -47,16 +54,16 @@ public class Principal {
                     }
                     break;
                 }
-                case 3:{
-                    String datos = listarJugadores(listaJugadores);
-                    JOptionPane.showMessageDialog(null, datos);
-                    break;
-                }
                 case 4:{
-                    insertarJugadorEnEquipo(listaJugadores, listaEquipos);
+                    String datos = listarJugadores(listaJugadores);
+                    JOptionPane.showMessageDialog(null, "Datos de los jugadores" + datos);
                     break;
                 }
                 case 5:{
+                    insertarJugadorEnEquipo(listaJugadores, listaEquipos);
+                    break;
+                }
+                case 6:{
                     return;
                 }
                 default:{
@@ -64,6 +71,16 @@ public class Principal {
                 }
             }
         }while(true);
+    }
+    
+    public static String listarEquipos(ArrayList<Equipo> equipos){
+        Equipo e = null;
+        String datos = "";
+        for(int i=0; i<equipos.size();i++){
+            e = equipos.get(i);
+            datos += e.toString();
+        }
+        return datos;
     }
     
     public static String listarJugadores(ArrayList<Jugador> jugadores){

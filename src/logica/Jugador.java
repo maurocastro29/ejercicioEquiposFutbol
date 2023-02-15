@@ -46,7 +46,7 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "nombre=" + nombre + ", posicion=" + posicion + ", cedula=" + cedula + "\n" ;
+        return "nombre: " + nombre + " | posicion: " + posicion + " | cedula=" + cedula + "\n" ;
     }
     
     

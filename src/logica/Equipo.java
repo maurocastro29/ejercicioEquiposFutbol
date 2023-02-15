@@ -75,12 +75,43 @@ public class Equipo {
         this.suplentes = suplentes;
     }
     
+    public boolean buscarJugador(Jugador jugador){
+        boolean suplente = buscarJugadorSuplente(jugador);
+        boolean titular = buscarJugadorTitular(jugador);
+        if(suplente || titular ){
+            return true;
+        }        
+        return false;
+    }
     
+    private boolean buscarJugadorSuplente(Jugador jugador){
+        int cantiSuplentes = this.suplentes.size();
+        Jugador aux = null;
+        for(int i=0; i<cantiSuplentes;i++){
+            aux = this.suplentes.get(i);
+            if(aux == jugador){
+                return true;
+            }
+        }
+        return false;
+    }
     
+    private boolean buscarJugadorTitular(Jugador jugador){
+        int cantiTitulares = this.titulares.size();
+        Jugador aux = null;
+        for(int i=0; i<cantiTitulares;i++){
+            aux = this.titulares.get(i);
+            if(aux == jugador){
+                return true;
+            }
+        }
+        return false;
+    }
     
+
+    @Override
+    public String toString() {
+        return "Nombre del equipo: " + nombreEquipo + " | Nombre del estadio: " + nombreEstadio + " | Cantidad de titulos: " + cantidadTitulos + "\n" ;
+    }
     
 }
-
-
-
-
