@@ -192,6 +192,16 @@ public class Equipo {
         }
         return datos;
     }
+    
+    public static String listarEquipos(ArrayList<Equipo> equipos){
+        Equipo e = null;
+        String datos = "";
+        for(int i=0; i<equipos.size();i++){
+            e = equipos.get(i);
+            datos += e.toString();
+        }
+        return datos;
+    }
 
     @Override
     public String toString() {

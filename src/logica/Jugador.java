@@ -68,6 +68,15 @@ public class Jugador {
         return null;
     }
     
+     public static String listarJugadores(ArrayList<Jugador> jugadores){
+        Jugador j = null;
+        String datos = "";
+        for(int i=0; i<jugadores.size();i++){
+            j = jugadores.get(i);
+            datos += j.toString();
+        }
+        return datos;
+    }
 
     @Override
     public String toString() {

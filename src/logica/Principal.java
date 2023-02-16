@@ -44,7 +44,7 @@ public class Principal {
                     break;
                 }
                 case 2:{
-                    String datos = listarEquipos(listaEquipos);
+                    String datos = Equipo.listarEquipos(listaEquipos);
                     JOptionPane.showMessageDialog(null, "Datos de los equipos\n" + datos);
                     break;
                 }
@@ -63,7 +63,7 @@ public class Principal {
                     break;
                 }
                 case 4:{
-                    String datos = listarJugadores(listaJugadores);
+                    String datos = Jugador.listarJugadores(listaJugadores);
                     JOptionPane.showMessageDialog(null, "Datos de los jugadores\n" + datos);
                     break;
                 }
@@ -113,33 +113,6 @@ public class Principal {
             }
         }while(true);
     }
-    
-    public static String listarEquipos(ArrayList<Equipo> equipos){
-        Equipo e = null;
-        String datos = "";
-        for(int i=0; i<equipos.size();i++){
-            e = equipos.get(i);
-            datos += e.toString();
-        }
-        return datos;
-    }
-    
-    public static String listarJugadores(ArrayList<Jugador> jugadores){
-        Jugador j = null;
-        String datos = "";
-        for(int i=0; i<jugadores.size();i++){
-            j = jugadores.get(i);
-            datos += j.toString();
-        }
-        return datos;
-    }
-    
-    
-    
-    public static void insertarJugadorEnEquipo(ArrayList<Jugador> jugadores, ArrayList<Equipo> equipos){
-        
-    }
-    
     
 }
 
